@@ -17,11 +17,11 @@ const ExpensesOverview = () => {
     <BottomTabs.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: GlobalStyles.colors.primary100,
+          backgroundColor: GlobalStyles.colors.primary300,
         },
         headerTintColor: GlobalStyles.colors.primary50,
         tabBarStyle: {
-          backgroundColor: GlobalStyles.colors.primary100,
+          backgroundColor: GlobalStyles.colors.primary300,
         },
         tabBarActiveTintColor: GlobalStyles.colors.accent100,
         tabBarInactiveTintColor: GlobalStyles.colors.primary200,
