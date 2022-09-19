@@ -1,14 +1,21 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const RecentExpenses = () => {
-  return (
-    <View>
-      <Text>RecentExpenses</Text>
-    </View>
-  );
-};
+import ExpensesOutput from 'components/ExpensesOutput';
+import ReduxHooks from 'store/hooks';
 
-export default RecentExpenses;
+export default function RecentExpenses() {
+  const { GetListExpenses } = ReduxHooks();
+  const expensesData = GetListExpenses();
+
+  const recentExpenses = expensesData.filter((expense) => {
+    const today = new Date();
+    const expenseDate = new Date(expense.date);
+    const date7DaysAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
+    return expenseDate >= date7DaysAgo && expenseDate <= today;
+  });
+
+  return <ExpensesOutput expenses={recentExpenses} expensesPeriod="Last 7 Days" />;
+}
 
 const styles = StyleSheet.create({});

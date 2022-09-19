@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-function AllExpenses() {
-  return (
-    <View>
-      <Text>AllExpenses</Text>
-    </View>
-  );
-}
+import ExpensesOutput from 'components/ExpensesOutput';
+import ReduxHooks from 'store/hooks';
 
-export default AllExpenses;
+export default function AllExpenses() {
+  const { GetListExpenses } = ReduxHooks();
+  const expensesData = GetListExpenses();
+
+  return <ExpensesOutput expenses={expensesData} expensesPeriod="Total" />;
+}
 
 const styles = StyleSheet.create({});
