@@ -10,8 +10,9 @@ export default function RecentExpenses() {
 
   const recentExpenses = expensesData.filter((expense) => {
     const today = new Date();
+    const expenseDate = new Date(expense.date);
     const date7DaysAgo = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
-    return expense.date > date7DaysAgo;
+    return expenseDate >= date7DaysAgo && expenseDate <= today;
   });
 
   return <ExpensesOutput expenses={recentExpenses} expensesPeriod="Last 7 Days" />;

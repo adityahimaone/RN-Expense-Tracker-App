@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addExpense } from './expensesSlice';
+import { addExpense, deleteExpense, updateExpense } from './expensesSlice';
 
 const ReduxHooks = () => {
   const dispatch = useDispatch();
@@ -9,15 +9,15 @@ const ReduxHooks = () => {
     return expenses;
   };
 
-  const AddExpense = ({ description, amount, date, category }) => {
+  const AddExpense = (description, amount, date, category) => {
     dispatch(addExpense({ description, amount, date, category }));
   };
 
-  const DeleteExpense = ({ id }) => {
+  const DeleteExpense = (id) => {
     dispatch(deleteExpense({ id }));
   };
 
-  const UpdateExpense = ({ id, description, amount, date, category }) => {
+  const UpdateExpense = (id, description, amount, date, category) => {
     dispatch(updateExpense({ id, description, amount, date, category }));
   };
 

@@ -1,12 +1,10 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 
 import ExpensesSummary from './ExpensesSummary';
 import ExpensesList from './ExpensesList';
 import { GlobalStyles } from 'constants/style';
-import ReduxHooks from 'store/hooks';
 
 ExpensesOutput.propTypes = {
   periodName: PropTypes.string,

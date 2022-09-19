@@ -4,10 +4,13 @@ import React, { useLayoutEffect } from 'react';
 import ButtonIcon from 'components/UI/ButtonIcon';
 import { GlobalStyles } from 'constants/style';
 import Button from 'components/UI/Button';
+import ReduxHooks from 'store/hooks';
 
 export default function ManageExpense({ route, navigation }) {
   const editedExpenseId = route.params?.expenseId;
+  // console.log(route.params, editedExpenseId, 'params');
   const isEditing = !!editedExpenseId;
+  const { DeleteExpense, UpdateExpense } = ReduxHooks();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -16,6 +19,7 @@ export default function ManageExpense({ route, navigation }) {
   }, [isEditing, navigation]);
 
   const deleteExpenseHandler = () => {
+    DeleteExpense(editedExpenseId);
     navigation.goBack();
   };
 
@@ -25,6 +29,10 @@ export default function ManageExpense({ route, navigation }) {
   };
 
   const confirmExpenseHandler = () => {
+    const today = new Date().toISOString();
+    if (isEditing) {
+      UpdateExpense(editedExpenseId, 'Update Test', 11000, today, 'Food');
+    }
     navigation.goBack();
   };
 

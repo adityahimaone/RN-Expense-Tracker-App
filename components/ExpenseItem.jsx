@@ -12,7 +12,7 @@ import formatPrice from 'utils/helper/format-price.js';
 ExpenseItem.propTypes = {
   description: PropTypes.string,
   amount: PropTypes.number,
-  date: PropTypes.instanceOf(Date),
+  date: PropTypes.string,
 };
 
 export default function ExpenseItem({ id, description, amount, date }) {

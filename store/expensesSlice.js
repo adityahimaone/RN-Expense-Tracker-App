@@ -6,31 +6,31 @@ const DUMMY_EXPENSES = [
     id: 'e1',
     description: 'A pice of cake',
     amount: 3213,
-    date: new Date(2022, 8, 13),
+    date: new Date(2022, 8, 13).toISOString(),
   },
   {
     id: 'e2',
     description: 'A pice of cake',
     amount: 3213,
-    date: new Date(2022, 8, 16),
+    date: new Date(2022, 8, 16).toISOString(),
   },
   {
     id: 'e3',
     description: 'A pair of shoes',
     amount: 10000,
-    date: new Date(2022, 8, 11),
+    date: new Date(2022, 8, 11).toISOString(),
   },
   {
     id: 'e4',
     description: 'A book',
     amount: 10000,
-    date: new Date(2022, 8, 17),
+    date: new Date(2022, 8, 17).toISOString(),
   },
   {
     id: 'e5',
     description: 'A Macbook',
     amount: 14500000,
-    date: new Date(2022, 8, 10),
+    date: new Date(2022, 8, 10).toISOString(),
   },
 ];
 
