@@ -13,5 +13,10 @@ export const GlobalStyles = {
     error500: '#F44336',
     gray500: '#9E9E9E',
     gray700: '#616161',
+    white100: '#FFFFFF',
+    white200: '#F9F9F9',
+  },
+  buttonRippleAndroid: {
+    color: '#ccc',
   },
 };

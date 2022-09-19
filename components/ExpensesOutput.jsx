@@ -55,6 +55,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     paddingBottom: 0,
-    backgroundColor: GlobalStyles.colors.primary400,
+    backgroundColor: GlobalStyles.colors.white200,
   },
 });

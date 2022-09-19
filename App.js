@@ -8,6 +8,7 @@ import ManageExpense from 'screens/ManageExpense';
 import RecentExpenses from 'screens/RecentExpenses';
 import AllExpenses from 'screens/AllExpenses';
 import { GlobalStyles } from 'constants/style';
+import ButtonIcon from 'components/UI/ButtonIcon';
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
@@ -15,7 +16,7 @@ const BottomTabs = createBottomTabNavigator();
 const ExpensesOverview = () => {
   return (
     <BottomTabs.Navigator
-      screenOptions={{
+      screenOptions={({ navigation }) => ({
         headerStyle: {
           backgroundColor: GlobalStyles.colors.primary300,
         },
@@ -25,7 +26,16 @@ const ExpensesOverview = () => {
         },
         tabBarActiveTintColor: GlobalStyles.colors.accent100,
         tabBarInactiveTintColor: GlobalStyles.colors.primary200,
-      }}
+        headerRight: ({ tintColor }) => (
+          <ButtonIcon
+            iconName="add"
+            color={tintColor}
+            onPress={() => {
+              navigation.navigate('ManageExpense');
+            }}
+          />
+        ),
+      })}
     >
       <BottomTabs.Screen
         name="RecentExpenses"
@@ -58,7 +68,15 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="ExpensesOverview">
+        <Stack.Navigator
+          initialRouteName="ExpensesOverview"
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: GlobalStyles.colors.primary300,
+            },
+            headerTintColor: GlobalStyles.colors.primary50,
+          }}
+        >
           <Stack.Screen
             name="ExpensesOverview"
             component={ExpensesOverview}
@@ -66,7 +84,14 @@ export default function App() {
               headerShown: false,
             }}
           />
-          <Stack.Screen name="ManageExpense" component={ManageExpense} />
+          <Stack.Screen
+            name="ManageExpense"
+            component={ManageExpense}
+            options={{
+              // title: 'Manage Expense',
+              presentation: 'modal',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
