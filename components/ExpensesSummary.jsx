@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { GlobalStyles } from 'constants/style';
+import formatPrice from 'utils/helper/format-price.js';
 
 ExpensesSummary.propTypes = {
   periodName: PropTypes.string,
@@ -16,7 +17,7 @@ export default function ExpensesSummary({ expenses, periodName }) {
   return (
     <View style={styles.container}>
       <Text style={styles.periodText}>{periodName}</Text>
-      <Text style={styles.sumText}>{expensesSum}</Text>
+      <Text style={styles.sumText}>{formatPrice(expensesSum)}</Text>
     </View>
   );
 }

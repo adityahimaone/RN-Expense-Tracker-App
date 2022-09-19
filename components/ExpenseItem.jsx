@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import { GlobalStyles } from 'constants/style';
 import Shadow from 'constants/shadow';
+import formatDate from 'utils/helper/format-date.js';
+import formatPrice from 'utils/helper/format-price.js';
 
 ExpenseItem.propTypes = {
   description: PropTypes.string,
@@ -17,10 +19,10 @@ export default function ExpenseItem({ description, amount, date }) {
       <View style={styles.expenseItem}>
         <View>
           <Text style={[styles.textBase, styles.descriptionText]}>{description}</Text>
-          <Text style={styles.textBase}>{date.toString()}</Text>
+          <Text style={styles.textBase}>{formatDate(date)}</Text>
         </View>
         <View style={styles.amountContainer}>
-          <Text style={styles.amountText}>{amount}</Text>
+          <Text style={styles.amountText}>{formatPrice(amount)}</Text>
         </View>
       </View>
     </Pressable>
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
+    minWidth: 90,
   },
   amountText: {
     color: GlobalStyles.colors.primary400,
