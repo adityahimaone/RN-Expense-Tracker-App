@@ -15,11 +15,18 @@ export default function ManageExpense({ route, navigation }) {
     });
   }, [isEditing, navigation]);
 
-  const deleteExpenseHandler = () => {};
+  const deleteExpenseHandler = () => {
+    navigation.goBack();
+  };
 
-  const cancelExpenseHandler = () => {};
+  const cancelExpenseHandler = () => {
+    // navigation goBack() is method for navigating back to previous screen
+    navigation.goBack();
+  };
 
-  const confirmExpenseHandler = () => {};
+  const confirmExpenseHandler = () => {
+    navigation.goBack();
+  };
 
   return (
     <View style={styles.container}>
