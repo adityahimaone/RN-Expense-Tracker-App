@@ -19,4 +19,10 @@ export const GlobalStyles = {
   buttonRippleAndroid: {
     color: '#ccc',
   },
+  buttonPrimary: {
+    backgroundColor: '#52796f',
+    color: '#cad2c5',
+    marginHorizontal: 4,
+    borderRadius: 4,
+  },
 };

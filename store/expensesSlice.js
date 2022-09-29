@@ -43,7 +43,7 @@ const expensesSlice = createSlice({
   reducers: {
     addExpense: (state, action) => {
       const { description, amount, date, category } = action.payload;
-      const id = useId();
+      const id = Math.random().toString();
       state.data.push({
         id,
         description,

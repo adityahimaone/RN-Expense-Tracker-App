@@ -8,7 +8,13 @@ export default function AllExpenses() {
   const { GetListExpenses } = ReduxHooks();
   const expensesData = GetListExpenses();
 
-  return <ExpensesOutput expenses={expensesData} expensesPeriod="Total" />;
+  return (
+    <ExpensesOutput
+      expenses={expensesData}
+      expensesPeriod="Total"
+      fallbackText="No register expenses found."
+    />
+  );
 }
 
 const styles = StyleSheet.create({});
