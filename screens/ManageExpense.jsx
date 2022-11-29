@@ -11,7 +11,11 @@ export default function ManageExpense({ route, navigation }) {
   const editedExpenseId = route.params?.expenseId;
   // console.log(route.params, editedExpenseId, 'params');
   const isEditing = !!editedExpenseId;
-  const { AddExpense, DeleteExpense, UpdateExpense } = ReduxHooks();
+  const { AddExpense, DeleteExpense, UpdateExpense, GetListExpenses } = ReduxHooks();
+
+  const selectedExpense = GetListExpenses().find((expense) => expense.id === editedExpenseId);
+
+  console.log(selectedExpense, 'selectedExpense');
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -46,6 +50,7 @@ export default function ManageExpense({ route, navigation }) {
         isEditing={isEditing}
         onCancel={cancelExpenseHandler}
         onSubmit={confirmExpenseHandler}
+        defaultValues={selectedExpense}
       />
 
       {isEditing && (

@@ -33,7 +33,7 @@ export default function ExpenseItem({ id, description, amount, date }) {
           </View>
           <View>
             <Text style={[styles.textBase, styles.descriptionText]}>{description}</Text>
-            <Text style={styles.textBase}>{formatDate(date)}</Text>
+            <Text style={styles.textBase}>{date}</Text>
             {/* <Text style={styles.textBase}>{date}</Text> */}
           </View>
         </View>
